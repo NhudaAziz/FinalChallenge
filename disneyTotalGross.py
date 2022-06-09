@@ -4,8 +4,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
-# Simple Iris Flower Prediction App
-This app predicts the **Iris flower** type!
+# Disney Movies Gross Income
+
 """)
 
 st.sidebar.header('User Input Parameters')
@@ -27,10 +27,10 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = pd.read_csv("https://raw.githubusercontent.com/NhudaAziz/FinalChallenge/main/disney_movies_total_gross.csv")
-feature_cols = ['sepal_length','sepal_width','petal_length','petal_width']
-X = iris[feature_cols]
-Y = iris.species
+gross = pd.read_csv("https://raw.githubusercontent.com/NhudaAziz/FinalChallenge/main/disney_movies_total_gross.csv")
+feature_cols = ['movie_title','release_date','genre','mpaa_rating']
+X = gross[feature_cols]
+Y = gross.inflation_adjusted_gross
 
 clf = RandomForestClassifier()
 clf.fit(X, Y)
