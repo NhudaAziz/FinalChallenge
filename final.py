@@ -24,8 +24,7 @@ df_selection = df.query(
     "Country == @country & City == @city"
 )
 
-chart_data = pd.df(
-     np.random.randn(20, 3), #20 rows 3 columns
-     columns=['a', 'b', 'c'])
+st.subheader('Map of all pickups')
+st.map(df)
 
-st.line_chart(chart_data)
+#st.line_chart(chart_data)
