@@ -7,8 +7,6 @@ st.header("Best Work-Life Balance Cities in 2022")
 
 df = pd.read_csv("https://raw.githubusercontent.com/NhudaAziz/FinalChallenge/main/Cities%20with%20the%20Best%20Work-Life%20Balance%202022.csv")
 
-df = get_data()
-
 # ---- Sidebar ----
 st.sidebar.header("Choose Filter:")
 country = st.sidebar.multiselect(
