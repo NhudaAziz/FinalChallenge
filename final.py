@@ -24,7 +24,8 @@ df_selection = df.query(
     "Country == @country & City == @city"
 )
 
-st.subheader('Map of all pickups')
-st.map(df)
+map_data = pd.DataFrame(df)
+
+    st.map(map_data)
 
 #st.line_chart(chart_data)
