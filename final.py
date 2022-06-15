@@ -27,7 +27,7 @@ df_selection = df.query(
 
 # BAR CHART
 city_line = (
-    df_selection.groupby(by=('Country')['City'].count().sort_values(ascending=True).plot.barh(figsize=(10,8))
+    df_selection.groupby('Country')['City'].count().sort_values(ascending=True).plot.barh(figsize=(10,8)
 )
 # fig_product_sales = px.bar(
 #     sales_by_product_line,
