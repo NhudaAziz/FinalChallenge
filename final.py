@@ -24,7 +24,7 @@ df_selection = df.query(
     "Country == @country & City == @city"
 )
 
-chart_data = pd.DataFrame(
+chart_data = pd.df(
      np.random.randn(20, 3), #20 rows 3 columns
      columns=['a', 'b', 'c'])
 
