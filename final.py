@@ -1,6 +1,10 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import geopy
+
+from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
 
 st.header("Best Work-Life Balance Cities in 2022")
 
@@ -24,9 +28,14 @@ df_selection = df.query(
     "Country == @country & City == @city"
 )
 
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
+geolocator = Nominatim(user_agent="GTA Lookup")
+geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+location = geolocator.geocode(country+", "+city)
+
+lat = location.latitude
+lon = location.longitude
+
+map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
 st.map(map_data)
 
