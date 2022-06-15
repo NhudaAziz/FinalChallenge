@@ -25,5 +25,20 @@ df_selection = df.query(
     "Country == @country & City == @city"
 )
 
-
-st.line_chart(chart_data)
+# BAR CHART
+city_line = (
+    df_selection.groupby(by=('Country')['City'].count().sort_values(ascending=True).plot.barh(figsize=(10,8))
+)
+# fig_product_sales = px.bar(
+#     sales_by_product_line,
+#     x="Total",
+#     y=sales_by_product_line.index,
+#     orientation="h",
+#     title="<b>Sales by Product Line</b>",
+#     color_discrete_sequence=["#0083B8"] * len(sales_by_product_line),
+#     template="plotly_white",
+# )
+# fig_product_sales.update_layout(
+#     plot_bgcolor="rgba(0,0,0,0)",
+#     xaxis=(dict(showgrid=False))
+# )
