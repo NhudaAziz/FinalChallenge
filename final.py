@@ -26,16 +26,16 @@ df_selection = df.query(
 )
 
 # BAR CHART
-city_line = (
-    df_selection.groupby(by=["Country"]).sum()[["City"]].sort_values(by="City")
+city_remote_line = (
+    df_selection.groupby(by=["City"]).sum()[["Remote Jobs"]].sort_values(by="Remote Jobs")
     
 fig_city = px.bar(
-    city_line,
-    x="City",
-    y=city_line.index,
+    city_remote_line,
+    x="Remote Jobs",
+    y=city_remote_line.index,
     orientation="h",
-    title="<b>Cities by Country</b>",
-    color_discrete_sequence=["#0083B8"] * len(city_line),
+    title="<b>Remote Jobs in Cities</b>",
+    color_discrete_sequence=["#0083B8"] * len(city_remote_line),
     template="plotly_white",
 )
 fig_city.update_layout(
