@@ -26,6 +26,6 @@ df_selection = df.query(
 
 map_data = pd.DataFrame(df)
 
-    st.map(map_data)
+st.map(map_data)
 
 #st.line_chart(chart_data)
