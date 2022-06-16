@@ -106,7 +106,7 @@ right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
 # SALES BY QUANTITY PRODUCT [BAR CHART]
 sales_by_pay_line = (
-    df_selection.groupby(by=["Payment"]).sum()[["Total"]].sort_values(by="Total`")
+    df_selection.groupby(by=["Payment"]).sum()[["Total"]].sort_values(by="Total")
 )
 fig_pay_sales = px.line(
     sales_by_pay_line,
