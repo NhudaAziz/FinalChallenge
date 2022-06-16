@@ -82,7 +82,7 @@ fig_product_sales.update_layout(
 
 # SALES BY HOUR [BAR CHART]
 sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
-fig_hourly_sales = px.bar(
+fig_hourly_sales = px.scatter(
     sales_by_hour,
     x=sales_by_hour.index,
     y="Total",
@@ -108,7 +108,7 @@ right_column.plotly_chart(fig_product_sales, use_container_width=True)
 sales_by_pay_line = (
     df_selection.groupby(by=["Payment"]).sum()[["Total"]].sort_values(by="Total")
 )
-fig_pay_sales = px.scatter(
+fig_pay_sales = px.bar(
     sales_by_pay_line,
     x="Total",
     y=sales_by_pay_line.index,
