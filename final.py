@@ -46,7 +46,7 @@ df_selection = df.query(
 )
 
 # ---- MAINPAGE ----
-st.title("Sales Analysis")
+st.title("Supermarket Sales Analysis")
 st.markdown("##")
 
 total_sales = int(df_selection["Total"].sum())
@@ -96,7 +96,10 @@ fig_hourly_sales.update_layout(
     yaxis=(dict(showgrid=False)),
 )
 
-fig_hourly_sales
-fig_product_sales
+# fig_hourly_sales
+# fig_product_sales
 
+left_column, right_column = st.columns(2)
+left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
+right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
