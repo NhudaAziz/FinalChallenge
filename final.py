@@ -52,13 +52,13 @@ st.markdown("##")
 total_sales = int(df_selection["Total"].sum())
 average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
 
-left_column, right_column = st.columns(2)
+left_column, right_column = st.columns(3)
 with left_column:
     st.subheader("Total Sales:")
-    st.subheader(f"US $ {total_sales:,}")
+    st.subheader(f"$ {total_sales:,}")
 with right_column:
     st.subheader("Average Sales Per Transaction:")
-    st.subheader(f"US $ {average_sale_by_transaction}")
+    st.subheader(f"$ {average_sale_by_transaction}")
 
 st.markdown("""---""")
 
@@ -82,7 +82,7 @@ fig_product_sales.update_layout(
 
 # SALES BY HOUR [BAR CHART]
 sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
-fig_hourly_sales = px.line(
+fig_hourly_sales = px.scatter(
     sales_by_hour,
     x=sales_by_hour.index,
     y="Total",
@@ -107,7 +107,7 @@ right_column.plotly_chart(fig_product_sales, use_container_width=True)
 sales_by_qty_line = (
     df_selection.groupby(by=["Quantity"]).sum()[["Total"]].sort_values(by="Total")
 )
-fig_qty_sales = px.bar(
+fig_qty_sales = px.line(
     sales_by_qty_line,
     x="Total",
     y=sales_by_qty_line.index,
