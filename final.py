@@ -53,10 +53,10 @@ total_sales = int(df_selection["Total"].sum())
 average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
 
 left_column, right_column = st.columns(2)
-with left_column(use_container_width=True):
+with left_column:
     st.subheader("Total Sales:")
     st.subheader(f"$ {total_sales:,}")
-with right_column(use_container_width=True):
+with right_column:
     st.subheader("Average Sales Per Transaction:")
     st.subheader(f"$ {average_sale_by_transaction}")
 
