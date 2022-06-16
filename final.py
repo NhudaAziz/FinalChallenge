@@ -82,7 +82,7 @@ fig_product_sales.update_layout(
 
 # SALES BY HOUR [BAR CHART]
 sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
-fig_hourly_sales = px.bar(
+fig_hourly_sales = px.line(
     sales_by_hour,
     x=sales_by_hour.index,
     y="Total",
