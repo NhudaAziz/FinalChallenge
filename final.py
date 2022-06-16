@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px  
 import streamlit as st  
 
-st.set_page_config(page_title="Sales Dashboard", page_icon=":keyboard:", layout="wide")
+st.set_page_config(page_title="Sales Analysis", page_icon=":keyboard:", layout="wide")
 
 # ---- READ EXCEL ----
 # @st.cache
@@ -103,3 +103,22 @@ left_column, right_column = st.columns(2)
 left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
 right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
+# SALES BY QUANTITY PRODUCT [BAR CHART]
+sales_by_qty_line = (
+    df_selection.groupby(by=["Quantity"]).sum()[["Total"]].sort_values(by="Total")
+)
+fig_qty_sales = px.bar(
+    sales_by_qty_line,
+    x="Total",
+    y=sales_by_qty_line.index,
+    orientation="h",
+    title="<b>Sales by Quantity of Product</b>",
+    color_discrete_sequence=["#ff4242"] * len(sales_by_qty_line),
+    template="plotly_white",
+)
+fig_qty_sales.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+
+fig_qty_sales
