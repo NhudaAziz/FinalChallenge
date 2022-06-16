@@ -5,3 +5,4 @@ streamlit==1.10.0
 plotly==5.5.0
 plotly-express==0.4.1
 openpyxl==3.0.10
+Pillow==7.1.2
