@@ -91,7 +91,7 @@ fig_hourly_sales = px.scatter(
 #     color="City"
     template="plotly_white",
     trendline="ols", 
-#     trendline_scope="overall"
+    trendline_scope="overall"
 )
 fig_hourly_sales.update_layout(
     xaxis=dict(tickmode="linear"),
