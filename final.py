@@ -8,7 +8,7 @@ st.set_page_config(page_title="Sales Dashboard", page_icon=":keyboard:", layout=
 # @st.cache
 def get_data_from_excel():
     df = pd.read_excel(
-        io="supermarkt_sales.xlsx",
+        io="sales.xlsx",
         engine="openpyxl",
         sheet_name="Sales",
         skiprows=3,
@@ -49,7 +49,6 @@ df_selection = df.query(
 st.title("Sales Analysis")
 st.markdown("##")
 
-# TOP KPI's
 total_sales = int(df_selection["Total"].sum())
 average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
 
@@ -97,19 +96,7 @@ fig_hourly_sales.update_layout(
     yaxis=(dict(showgrid=False)),
 )
 
-# left_column, right_column = st.columns(2)
-# left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
-# right_column.plotly_chart(fig_product_sales, use_container_width=True)
-
 fig_hourly_sales
 fig_product_sales
 
-# ---- HIDE STREAMLIT STYLE ----
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
