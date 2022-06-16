@@ -1,8 +1,7 @@
-import pandas as pd  # pip install pandas openpyxl
-import plotly.express as px  # pip install plotly-express
-import streamlit as st  # pip install streamlit
+import pandas as pd 
+import plotly.express as px  
+import streamlit as st  
 
-# emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Sales Dashboard", page_icon=":keyboard:", layout="wide")
 
 # ---- READ EXCEL ----
@@ -102,7 +101,7 @@ fig_hourly_sales.update_layout(
 # left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
 # right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
-fig_hourly_sales()
+fig_hourly_sales
 fig_product_sales
 
 # ---- HIDE STREAMLIT STYLE ----
