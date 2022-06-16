@@ -102,6 +102,8 @@ fig_hourly_sales.update_layout(
 # left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
 # right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
+fig_hourly_sales()
+fig_product_sales
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
