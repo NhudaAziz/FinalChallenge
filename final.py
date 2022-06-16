@@ -110,8 +110,8 @@ sales_by_pay_line = (
 )
 fig_pay_sales = px.bar(
     sales_by_pay_line,
-    x="Total",
-    y=sales_by_pay_line.index,
+    y="Total",
+    x=sales_by_pay_line.index,
     orientation="h",
     title="<b>Sales by Payment Type</b>",
     color_discrete_sequence=["#ff4242"] * len(sales_by_pay_line),
