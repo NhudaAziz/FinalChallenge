@@ -66,7 +66,7 @@ st.markdown("""---""")
 sales_by_product_line = (
     df_selection.groupby(by=["Product line"]).sum()[["Total"]].sort_values(by="Total")
 )
-fig_product_sales = px.bar(
+fig_product_sales = px.line(
     sales_by_product_line,
     x="Total",
     y=sales_by_product_line.index,
@@ -108,7 +108,7 @@ right_column.plotly_chart(fig_product_sales, use_container_width=True)
 sales_by_pay_line = (
     df_selection.groupby(by=["Payment"]).sum()[["Total"]].sort_values(by="Total")
 )
-fig_pay_sales = px.line(
+fig_pay_sales = px.scatter(
     sales_by_pay_line,
     x="Total",
     y=sales_by_pay_line.index,
