@@ -110,8 +110,8 @@ sales_by_pay_line = (
 )
 fig_pay_sales = px.bar(
     sales_by_pay_line,
-    y="Total",
-    x=sales_by_pay_line.index,
+    x="Total",
+    y=sales_by_pay_line.index,
     orientation="h",
     title="<b>Sales by Payment Type</b>",
     color_discrete_sequence=["#ff4242"] * len(sales_by_pay_line),
@@ -124,3 +124,22 @@ fig_pay_sales.update_layout(
 )
 
 fig_pay_sales
+
+# GROSS INCOME
+sales_gross = df_selection.groupby(by=["gross income"]).sum()[["Total"]]
+fig_gross_sales = px.scatter(
+    sales_gross,
+    x=sales_gross.index,
+    y="Total",
+    title="<b>Sales vs Gross Income</b>",
+    color_discrete_sequence=["#fbff07"] * len(sales_gross),
+#     color="City"
+    template="plotly_white",
+)
+fig_gross_sales.update_layout(
+    xaxis=dict(tickmode="linear"),
+    plot_bgcolor="rgba(0,0,0,0)",
+    yaxis=(dict(showgrid=False)),
+)
+
+fig_gross_sales
