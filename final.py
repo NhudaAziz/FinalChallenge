@@ -6,7 +6,7 @@ import streamlit as st  # pip install streamlit
 st.set_page_config(page_title="Sales Dashboard", page_icon=":keyboard:", layout="wide")
 
 # ---- READ EXCEL ----
-# @st.cache
+@st.cache
 def get_data_from_excel():
     df = pd.read_excel(
         io="supermarkt_sales.xlsx",
