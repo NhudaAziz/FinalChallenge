@@ -3,7 +3,7 @@ import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="Sales Dashboard", page_icon=":keyboard:", layout="wide")
 
 # ---- READ EXCEL ----
 @st.cache
@@ -23,7 +23,7 @@ def get_data_from_excel():
 df = get_data_from_excel()
 
 # ---- SIDEBAR ----
-st.sidebar.header("Please Filter Here:")
+st.sidebar.header("Choose Filter:")
 city = st.sidebar.multiselect(
     "Select the City:",
     options=df["City"].unique(),
@@ -47,13 +47,11 @@ df_selection = df.query(
 )
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Sales Dashboard")
+st.title("Sales Analysis")
 st.markdown("##")
 
 # TOP KPI's
 total_sales = int(df_selection["Total"].sum())
-average_rating = round(df_selection["Rating"].mean(), 1)
-star_rating = ":star:" * int(round(average_rating, 0))
 average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
 
 left_column, middle_column, right_column = st.columns(3)
@@ -79,7 +77,7 @@ fig_product_sales = px.bar(
     y=sales_by_product_line.index,
     orientation="h",
     title="<b>Sales by Product Line</b>",
-    color_discrete_sequence=["#0083B8"] * len(sales_by_product_line),
+    color_discrete_sequence=["#db08e9"] * len(sales_by_product_line),
     template="plotly_white",
 )
 fig_product_sales.update_layout(
@@ -94,7 +92,7 @@ fig_hourly_sales = px.bar(
     x=sales_by_hour.index,
     y="Total",
     title="<b>Sales by hour</b>",
-    color_discrete_sequence=["#0083B8"] * len(sales_by_hour),
+    color_discrete_sequence=["#04fbf0"] * len(sales_by_hour),
     template="plotly_white",
 )
 fig_hourly_sales.update_layout(
