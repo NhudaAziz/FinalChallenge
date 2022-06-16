@@ -73,7 +73,7 @@ fig_product_sales = px.bar(
     orientation="h",
     title="<b>Sales by Product Line</b>",
     color_discrete_sequence=["#db08e9"] * len(sales_by_product_line),
-#     template="plotly_white",
+    template="plotly_white",
 )
 fig_product_sales.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
@@ -82,14 +82,14 @@ fig_product_sales.update_layout(
 
 # SALES BY HOUR [BAR CHART]
 sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
-fig_hourly_sales = px.scatter(
+fig_hourly_sales = px.bar(
     sales_by_hour,
     x=sales_by_hour.index,
     y="Total",
     title="<b>Sales by hour</b>",
     color_discrete_sequence=["#04fbf0"] * len(sales_by_hour),
-    color="City"
-#     template="plotly_white",
+#     color="City"
+    template="plotly_white",
 )
 fig_hourly_sales.update_layout(
     xaxis=dict(tickmode="linear"),
@@ -115,8 +115,8 @@ fig_qty_sales = px.line(
     orientation="h",
     title="<b>Sales by Quantity of Product</b>",
     color_discrete_sequence=["#ff4242"] * len(sales_by_qty_line),
-    color="Gender"
-#     template="plotly_white",
+#     color="Gender"
+    template="plotly_white",
 )
 fig_qty_sales.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
